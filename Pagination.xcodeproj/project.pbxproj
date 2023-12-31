@@ -11,6 +11,7 @@
 		0409CC282B403FAC001F5B2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0409CC272B403FAC001F5B2E /* ContentView.swift */; };
 		0409CC2A2B403FAE001F5B2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0409CC292B403FAE001F5B2E /* Assets.xcassets */; };
 		0409CC2D2B403FAE001F5B2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0409CC2C2B403FAE001F5B2E /* Preview Assets.xcassets */; };
+		0409CC342B40567B001F5B2E /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0409CC332B40567B001F5B2E /* ProductListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		0409CC272B403FAC001F5B2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0409CC292B403FAE001F5B2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0409CC2C2B403FAE001F5B2E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0409CC332B40567B001F5B2E /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				0409CC252B403FAC001F5B2E /* PaginationApp.swift */,
 				0409CC272B403FAC001F5B2E /* ContentView.swift */,
+				0409CC332B40567B001F5B2E /* ProductListViewModel.swift */,
 				0409CC292B403FAE001F5B2E /* Assets.xcassets */,
 				0409CC2B2B403FAE001F5B2E /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0409CC342B40567B001F5B2E /* ProductListViewModel.swift in Sources */,
 				0409CC282B403FAC001F5B2E /* ContentView.swift in Sources */,
 				0409CC262B403FAC001F5B2E /* PaginationApp.swift in Sources */,
 			);

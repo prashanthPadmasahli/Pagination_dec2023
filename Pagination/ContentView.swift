@@ -8,14 +8,50 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = ProductListViewModel()
+    @State var products = [Product]()
+    @State var pageNumber = 0
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            List(products) { product in
+                productRow(product)
+                    .task {
+                        if product.id == products.last?.id {
+                            pageNumber += 1
+                            products += await viewModel.fetchProducts(pageNumber)
+                        }
+                    }
+            }
+            .navigationTitle("Products")
+            .task {
+                products = await viewModel.fetchProducts(pageNumber)
+            }
         }
-        .padding()
+    }
+    
+    func productRow(_ product: Product) -> some View {
+        HStack {
+            asyncImage(imageUrl: product.thumbnail)
+            VStack(alignment: .leading) {
+                Text(product.title)
+                    .bold()
+                Text(product.description)
+                    .foregroundColor(.secondary)
+                    .lineLimit(3)
+            }
+        }
+    }
+    
+    func asyncImage(imageUrl: String) -> some View {
+        AsyncImage(url: URL(string: imageUrl)!) { image in
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        } placeholder: {
+            ProgressView()
+        }
+        .frame(width: 100, height: 100)
     }
 }
 
