@@ -17,7 +17,7 @@ struct ContentView: View {
             List(products) { product in
                 productRow(product)
                     .task {
-                        if product.id == products.last?.id {
+                        if product == products.last {
                             pageNumber += 1
                             products += await viewModel.fetchProducts(pageNumber)
                         }
@@ -25,7 +25,11 @@ struct ContentView: View {
             }
             .navigationTitle("Products")
             .task {
-                products = await viewModel.fetchProducts(pageNumber)
+                products = await viewModel.fetchProducts()
+            }
+            .refreshable {
+                products = await viewModel.fetchProducts().shuffled()
+                pageNumber = 0
             }
         }
     }
